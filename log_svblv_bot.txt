@@ -38,3 +38,146 @@ User: Igor Message: 1 2 3, Response: 6.0
 User: Igor Message: 1;3;6, Response: 10.0
 User: Igor Message: /btc, Response: Bitcoin price: 9277.4846 USD
 Date: Jun 25, 2020 11:29:00 UTC
+User: Roman Message: /start
+User: Roman Message: /btc, Response: Bitcoin price: 9281.3303 USD
+Date: Jun 25, 2020 11:34:00 UTC
+User: Igor Message: Test, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: /btc, Response: Bitcoin price: 9283.7989 USD
+Date: Jun 25, 2020 11:50:00 UTC
+User: Igor Message: /mult
+User: Igor Message: 1;2;3;5;7, Response: 210.0
+User: Igor Message: /sum
+User: Igor Message: 1;2;3;8;9, Response: 23.0
+User: Igor Message: /btc, Response: Bitcoin price: 9282.381 USD
+Date: Jun 25, 2020 11:51:00 UTC
+User: Igor Message: /btc, Response: Bitcoin price: 9190.3291 USD
+Date: Jun 25, 2020 12:34:00 UTC
+User: Igor Message: /btc, Response: Bitcoin price: 9190.3291 USD
+Date: Jun 25, 2020 12:34:00 UTC
+User: Igor Message: /btc, Response: Bitcoin price: 9203.4646 USD
+Date: Jun 25, 2020 12:37:00 UTC
+User: Olesya Message: /btc, Response: Bitcoin price: 9198.416 USD
+Date: Jun 25, 2020 13:47:00 UTC
+User: Igor Message: /btc, Response: Bitcoin price: 9195.4788 USD
+Date: Jun 25, 2020 13:49:00 UTC
+User: Olesya Message: /btc, Response: Bitcoin price: 9195.4788 USD
+Date: Jun 25, 2020 13:49:00 UTC
+User: Igor Message: /btc, Response: Bitcoin price: 9195.4788 USD
+Date: Jun 25, 2020 13:49:00 UTC
+User: Igor Message: /start
+User: Igor Message: /sum
+User: Igor Message: /start
+User: Igor Message: /start
+User: Igor Message: /btc, Response: Bitcoin price: 9254.9744 USD
+Date: Jun 25, 2020 14:53:00 UTC
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9254.8181 USD
+Date: Jun 25, 2020 14:54:00 UTC
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9252.4597 USD
+Date: Jun 25, 2020 14:55:00 UTC
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9249.8495 USD
+Date: Jun 25, 2020 14:58:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9245.3145 USD
+Date: Jun 25, 2020 15:01:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9245.3145 USD
+Date: Jun 25, 2020 15:01:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc 2019-01-01, Response: Bitcoin price: 9238.7292 USD
+Date: Jun 25, 2020 15:02:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /start
+User: Igor Message: /btc, Response: Bitcoin price: 9231.0347 USD
+Date: Jun 25, 2020 15:08:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9246.8283 USD
+Date: Jun 25, 2020 15:23:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc 2019-01-01, Response: Bitcoin price: 9246.8283 USD
+Date: Jun 25, 2020 15:23:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9246.6355 USD
+Date: Jun 25, 2020 15:24:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9247.9525 USD
+Date: Jun 25, 2020 15:26:00 UTC
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9249.1271 USD
+Date: Jun 25, 2020 15:27:00 UTC
+Чтобы построить от другой даты введите команду в формате /btc YYYY-MM-DD
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9249.1271 USD
+Date: Jun 25, 2020 15:27:00 UTC
+Чтобы построить от другой даты введите команду в формате
+/btc YYYY-MM-DD
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9249.1271 USD
+Date: Jun 25, 2020 15:27:00 UTC
+Чтобы построить от другой даты введите команду в формате
+/btc YYYY-MM-DD
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Olesya Message: /btc 2019-01-01, Response: Bitcoin price: 9244.1734 USD
+Date: Jun 25, 2020 15:29:00 UTC
+Чтобы построить от другой даты введите команду в формате
+/btc YYYY-MM-DD
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Olesya Message: /btc, Response: Bitcoin price: 9244.1734 USD
+Date: Jun 25, 2020 15:29:00 UTC
+Чтобы построить от другой даты введите команду в формате
+/btc YYYY-MM-DD
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Olesya Message: /btc 2019-05-07, Response: Bitcoin price: 9232.3462 USD
+Date: Jun 25, 2020 15:33:00 UTC
+Чтобы построить от другой даты введите команду в формате
+/btc YYYY-MM-DD
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Aleksandr Message: /start
+User: Igor Message: /start
+User: Igor Message: /sum
+User: Igor Message: 1;2;3;4;5, Response: 15.0
+User: Igor Message: /btc, Response: Bitcoin price: 9235.3508 USD
+Date: Jun 25, 2020 15:56:00 UTC
+Чтобы построить от другой даты введите команду в формате
+/btc YYYY-MM-DD
+
+Powered by CoinDesk
+https://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9236.3909 USDDate: Jun 25, 2020 15:58:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9234.8313 USDDate: Jun 25, 2020 15:59:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+User: Igor Message: /start

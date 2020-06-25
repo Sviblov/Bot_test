@@ -3,6 +3,12 @@ import json
 import numpy
 import requests
 from telebot.types import Message
+import pandas as pd
+import matplotlib
+from matplotlib import pyplot as plt
+from datetime import date
+import pprint as pp
+
 TOKEN = '1237869167:AAHlSqvq9Kw5Me9g4zrCAaaVya_yCLe9s80'
 
 bot = telebot.TeleBot(TOKEN)
@@ -10,6 +16,7 @@ bot = telebot.TeleBot(TOKEN)
 #if false - sum , if true - mult
 mult_flag = False
 user_state={}
+matplotlib.use('agg')
 
 def get_bitcoin_price():
     TICKER_API_URL = 'https://api.coindesk.com/v1/bpi/currentprice.json'
@@ -19,7 +26,21 @@ def get_bitcoin_price():
 
     bitcoin_price = response_json['bpi']['USD']['rate_float']
     bitcoin_date =  response_json['time']['updated']
-    return f'Bitcoin price: {bitcoin_price} USD\nDate: {bitcoin_date}'
+    return f'Bitcoin price: {bitcoin_price} USD\nDate: {bitcoin_date}\nЧтобы построить от другой даты введите команду в формате\n/btc YYYY-MM-DD'
+
+def get_bitcoin_timeseries(start_date, end_date,title):
+    TICKER_API_URL = f'https://api.coindesk.com/v1/bpi/historical/close.json?start={start_date}&end={end_date}'
+
+    response = requests.get(TICKER_API_URL)
+    response_json = response.json()
+    output_dict=response_json['bpi']
+    data_set = pd.DataFrame.from_dict(output_dict, orient = "index").reset_index()
+    data_set.columns = ['Date', 'Price']
+    data_set.plot(x='Date', y='Price')
+    plt.grid()
+    plt.title('Special for ' + title + '\nГрафик строился от ' + str(start_date))
+    plt.xticks(rotation=90)
+    plt.savefig('Price_plot.png')
 
 def sum_or_mult(list, mult_flag):
     try:
@@ -37,7 +58,7 @@ def sum_or_mult(list, mult_flag):
 @bot.message_handler(commands=['start'])
 def send_welcome(message: Message):
     global user_state
-    bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name}\n\nCначала выбери команду:\n   ➕сложение /sum\n   ✖️умножение /mult. \nЗатем отправляй боту числа через пробел или разделенные ; , а он будет их соответственно складывать или перемножать\n\n Команда \btc выдаст цену биткоина')
+    bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name}\n\nCначала выбери команду:\n   ➕сложение /sum\n   ✖️умножение /mult. \nЗатем отправляй боту числа через пробел или разделенные ; , а он будет их соответственно складывать или перемножать\n\n Команда /btc выдаст цену биткоина')
     user_state[message.from_user.id]=False
     with open('log_svblv_bot.txt','a') as f:
         print(f'User: {message.from_user.first_name} Message: {message.text}',file = f)
@@ -60,10 +81,35 @@ def change_flag(message: Message):
 
 @bot.message_handler(commands=['btc'])
 def change_flag(message: Message):
-   output = get_bitcoin_price()
-   bot.send_message(message.chat.id , output + '\nPowered by CoinDesk\nhttps://www.coindesk.com/price/bitcoin')
-   with open('log_svblv_bot.txt','a') as f:
-        print(f'User: {message.from_user.first_name} Message: {message.text}, Response: {output}',file = f)
+   
+    message_text = message.text
+    if len(message_text.split())==1:
+       start_date = '2018-01-01'
+    else:
+       start_date = message_text.split()[1]
+
+    output = get_bitcoin_price()+ '\n\nPowered by CoinDesk\nhttps://www.coindesk.com/price/bitcoin'
+
+    try:
+        start_date = date.fromisoformat(start_date)
+       
+            
+        get_bitcoin_timeseries(start_date, date.today(),message.from_user.first_name)
+        with open('Price_plot.png','rb') as f:
+            bot.send_photo(message.chat.id,f,caption=output)
+
+        with open('log_svblv_bot.txt','a') as f:
+                old_str='\n'
+                new_str=''
+                print(f'User: {message.from_user.first_name} Message: {message.text}, Response: {output.replace(old_str,new_str)}',file = f)
+   
+    except:
+        bot.send_message(message.chat.id, output + '\n\nГрафика нет, так как дата введена неверно формат такой: /btc 2018-01-01, а вы ввели:\n{message.text}')
+        with open('log_svblv_bot.txt','a') as f:
+            old_str='\n'
+            new_str=''
+            print(f'User: {message.from_user.first_name} Message: {message.text}, Response: {output.replace(old_str,new_str)}',file = f)
+
 
 
 @bot.message_handler(func = lambda message: True)
