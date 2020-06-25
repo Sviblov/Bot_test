@@ -1,0 +1,27 @@
+User: Igor Message: /start
+User: Igor Message: /sum
+User: Igor Message: 1 2 3
+User: Igor Message: 1;2;3;4;5
+User: Igor Message: /mult
+User: Igor Message: 1/2
+User: Igor Message: /start
+User: Igor Message: /sum
+User: Igor Message: 1 2 3
+User: Olesya Message: /start
+User: Olesya Message: /mult
+User: Olesya Message: 793;966
+User: Igor Message: 5 6
+User: Igor Message: /start
+User: Igor Message: /sum
+User: Igor Message: 1 2
+User: Igor Message: 4;7
+User: Igor Message: /start
+User: Igor Message: /sum
+User: Igor Message: 1 2 7
+User: Roman Message: 5; 17
+User: Roman Message: /start
+User: Roman Message: +
+User: Roman Message: /mult
+User: Igor Message: /sum
+User: Roman Message: 1 53 777
+User: Igor Message: 5; 7
