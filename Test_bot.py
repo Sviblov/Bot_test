@@ -3,9 +3,15 @@
 import requests
 import pprint as pp
 
+#Import the requests library
 
-base_url = 'https://api.telegram.org/bot1237869167:AAHlSqvq9Kw5Me9g4zrCAaaVya_yCLe9s80/'
+def get_bitcoin_price():
+    TICKER_API_URL = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 
-r = requests.get(f'{base_url}getUpdates')
+    response = requests.get(TICKER_API_URL)
+    response_json = response.json()
 
-pp.pprint(r.json())
+    bitcoin_price = response_json['bpi']['USD']['rate_float']
+    bitcoin_date =  response_json['time']['updated']
+    return f'Bitcoin price: {bitcoin_price} USD\nDate: {bitcoin_date}'
+
