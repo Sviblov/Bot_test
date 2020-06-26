@@ -181,3 +181,110 @@ https://www.coindesk.com/price/bitcoin
 User: Igor Message: /btc, Response: Bitcoin price: 9236.3909 USDDate: Jun 25, 2020 15:58:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
 User: Igor Message: /btc, Response: Bitcoin price: 9234.8313 USDDate: Jun 25, 2020 15:59:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
 User: Igor Message: /start
+User: Roman Message: /start
+User: Roman Message: /start
+User: Roman Message: /btc, Response: Bitcoin price: 9217.0643 USDDate: Jun 25, 2020 16:18:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+User: Roman Message: /sum
+User: Roman Message: /mult
+User: Igor Message: /start
+User: Lil Message: /start
+User: Igor Message: /btc, Response: Bitcoin price: 9326.4386 USDDate: Jun 25, 2020 21:18:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc 2017-01-01, Response: Bitcoin price: 9326.4386 USDDate: Jun 25, 2020 21:18:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+User: Igor Message: /start
+User: Igor Message: /start
+User: Igor Message: 5 7 8, Response: 20.0
+User: Igor Message: 5;7;9, Response: 21.0
+User: Igor Message: /btc, Response: Bitcoin price: 9217.5259 USDDate: Jun 26, 2020 06:46:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc, Response: Bitcoin price: 9195.8071 USDDate: Jun 26, 2020 07:03:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+User: Igor Message: /btc 2020-01-01, Response: Bitcoin price: 9115.8117 USDDate: Jun 26, 2020 07:25:00 UTCЧтобы построить от другой даты введите команду в формате/btc YYYY-MM-DDPowered by CoinDeskhttps://www.coindesk.com/price/bitcoin
+ User: Igor Message: /start
+User: Igor Message: Цена биткоина, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Цена биткоина, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Сложение, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Умножение, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Умножение, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Цена биткоина, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Сложение, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Цена биткоина, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: /start
+User: Igor Message: Сложение, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Умножение, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Сложение, Response: Я перезагрузил бота. Нажми еще раз
+/start
+User: Igor Message: /start
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота, Response: 🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота
+User: Igor Message: /btc, Response: Нужно перезагрузить бот в меню
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота, Response: None
+User: Igor Message: Сложение, Response: Теперь отправляйте числа через пробел, или разделенные ; , бот их сложит:Например:1 2 3 4 5или1;2;3;4;5
+User: Igor Message: 1;2;3, Response: Нужно перезагрузить бот в меню
+User: Igor Message: 1 2 3, Response: Нужно перезагрузить бот в меню
+User: Igor Message: Умножение, Response: Теперь отправляйте числа через пробел, или разделенные ; , бот их перемножит:Например:1 2 3 4 5или1;2;3;4;5
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота, Response: None
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота, Response: None
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота, Response: None
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Перезагрузить бота, Response: None
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Умножение
+User: Igor Message: Сложение
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Сложение
+User: Igor Message: 1 2 3 4
+User: Igor Message: 1;2;34
+User: Igor Message: Умножение
+User: Igor Message: 1 2 3 4
+User: Igor Message: 3;7;9;8
+User: Igor Message: Сложение
+User: Igor Message: 1 2 5
+User: Igor Message: Умножение
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина
+User: Igor Message: /sum
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина 222
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Цена биткоина 2018;;
+User: Igor Message: 1 2 4
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина 33:
+User: Igor Message: Цена биткоина
+User: Igor Message: :33
+User: Igor Message: Перезагрузить бота
+User: Igor Message: Hdhd
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина 2019-01-01
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина 2018-01-01
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина 2018-01-01
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина 2018-01-01
+User: Igor Message: Цена биткоина 2018-01-01
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина
+User: Igor Message: Цена биткоина 2018-01-01
+User: Igor Message: Сложение
+User: Igor Message: 1;2;3;4;5
+User: Igor Message: Умножение
+User: Igor Message: 1;2;3;4;5
+User: D Message: Сложение
+User: D Message: 1 2 3 4
+User: Igor Message: 1 5
+User: Igor Message: Цена биткоина
+User: Igor Message: Перезагрузить бота

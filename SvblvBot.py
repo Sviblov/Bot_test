@@ -8,6 +8,8 @@ import matplotlib
 from matplotlib import pyplot as plt
 from datetime import date
 import pprint as pp
+from telebot import types
+import my_functions as mf
 
 TOKEN = '1237869167:AAHlSqvq9Kw5Me9g4zrCAaaVya_yCLe9s80'
 
@@ -18,110 +20,95 @@ mult_flag = False
 user_state={}
 matplotlib.use('agg')
 
-def get_bitcoin_price():
-    TICKER_API_URL = 'https://api.coindesk.com/v1/bpi/currentprice.json'
-
-    response = requests.get(TICKER_API_URL)
-    response_json = response.json()
-
-    bitcoin_price = response_json['bpi']['USD']['rate_float']
-    bitcoin_date =  response_json['time']['updated']
-    return f'Bitcoin price: {bitcoin_price} USD\nDate: {bitcoin_date}\nЧтобы построить от другой даты введите команду в формате\n/btc YYYY-MM-DD'
-
-def get_bitcoin_timeseries(start_date, end_date,title):
-    TICKER_API_URL = f'https://api.coindesk.com/v1/bpi/historical/close.json?start={start_date}&end={end_date}'
-
-    response = requests.get(TICKER_API_URL)
-    response_json = response.json()
-    output_dict=response_json['bpi']
-    data_set = pd.DataFrame.from_dict(output_dict, orient = "index").reset_index()
-    data_set.columns = ['Date', 'Price']
-    data_set.plot(x='Date', y='Price')
-    plt.grid()
-    plt.title('Special for ' + title + '\nГрафик строился от ' + str(start_date))
-    plt.xticks(rotation=90)
-    plt.savefig('Price_plot.png')
-
-def sum_or_mult(list, mult_flag):
-    try:
-        if ';' in list:
-            numbers_list = [float(el) for el in list.split(';')]
-        else:
-            numbers_list = [float(el) for el in list.split()]
-        if mult_flag:
-            return numpy.prod(numbers_list)
-        else:
-            return sum(numbers_list)
-    except:
-        return "🤦‍♂️Это текст, а не числа через пробел, а команду нужно выбирать нажав /"
-
 @bot.message_handler(commands=['start'])
 def send_welcome(message: Message):
     global user_state
-    bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name}\n\nCначала выбери команду:\n   ➕сложение /sum\n   ✖️умножение /mult. \nЗатем отправляй боту числа через пробел или разделенные ; , а он будет их соответственно складывать или перемножать\n\n Команда /btc выдаст цену биткоина')
+    markup = types.ReplyKeyboardMarkup(row_width=2)
+    itembtn1 = types.KeyboardButton('Сложение')
+    itembtn2 = types.KeyboardButton('Умножение')
+    itembtn3 = types.KeyboardButton('Цена биткоина')
+    itembtn4 = types.KeyboardButton('Погода',request_location=True)
+    itembtn5 = types.KeyboardButton('Перезагрузить бота')
+    markup.row(itembtn1, itembtn2)
+    markup.row(itembtn3)
+    markup.row(itembtn4)
+    markup.row(itembtn5)
+
+    bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name}\n\nCначала выбери арифметическое действие: Затем отправляй боту числа через пробел или разделенные ; , а бот будет их складывать или перемножать\n\nЕще можно узнать цену биткоина и погоду', reply_markup=markup)
     user_state[message.from_user.id]=False
-    with open('log_svblv_bot.txt','a') as f:
-        print(f'User: {message.from_user.first_name} Message: {message.text}',file = f)
-
-@bot.message_handler(commands=['sum'])
-def change_flag(message: Message):
-    global user_state
-    user_state[message.from_user.id] =False
-    bot.send_message(message.chat.id, 'Теперь отправляйте числа через пробел, или разделенные ; , бот их сложит:\nНапример:\n\n1 2 3 4 5\nили\n1;2;3;4;5')
-    with open('log_svblv_bot.txt','a') as f:
-        print(f'User: {message.from_user.first_name} Message: {message.text}',file = f)
-
-@bot.message_handler(commands=['mult'])
-def change_flag(message: Message):
-    global user_state
-    user_state[message.from_user.id] = True
-    bot.send_message(message.chat.id, 'Теперь отправляйте числа через пробел, или разделенные ; , бот их перемножит:\nНапример:\n\n1 2 3 4 5\nили\n1;2;3;4;5')
-    with open('log_svblv_bot.txt','a') as f:
-        print(f'User: {message.from_user.first_name} Message: {message.text}',file = f)
-
-@bot.message_handler(commands=['btc'])
-def change_flag(message: Message):
-   
-    message_text = message.text
-    if len(message_text.split())==1:
-       start_date = '2018-01-01'
+    
+def btc_price(message_text, user):
+    output = ''
+    if message_text == 'Цена биткоина' or message_text == 'цена биткоина':
+        price_date =date.today()
+        output = output + mf.get_bitcoin_price()
     else:
-       start_date = message_text.split()[1]
-
-    output = get_bitcoin_price()+ '\n\nPowered by CoinDesk\nhttps://www.coindesk.com/price/bitcoin'
-
-    try:
-        start_date = date.fromisoformat(start_date)
-       
-            
-        get_bitcoin_timeseries(start_date, date.today(),message.from_user.first_name)
-        with open('Price_plot.png','rb') as f:
-            bot.send_photo(message.chat.id,f,caption=output)
-
-        with open('log_svblv_bot.txt','a') as f:
-                old_str='\n'
-                new_str=''
-                print(f'User: {message.from_user.first_name} Message: {message.text}, Response: {output.replace(old_str,new_str)}',file = f)
+        
+        price_date=message_text.split()[2]
+        try:
+            output = output + mf.get_bitcoin_price(price_date)
+        except:
+            output = 'Вы ввели что то не то \n'
+            price_date = date.today()
+            output = output + mf.get_bitcoin_price()
    
-    except:
-        bot.send_message(message.chat.id, output + '\n\nГрафика нет, так как дата введена неверно формат такой: /btc 2018-01-01, а вы ввели:\n{message.text}')
-        with open('log_svblv_bot.txt','a') as f:
-            old_str='\n'
-            new_str=''
-            print(f'User: {message.from_user.first_name} Message: {message.text}, Response: {output.replace(old_str,new_str)}',file = f)
+    
+    
+    return output
 
 
 
-@bot.message_handler(func = lambda message: True)
+@bot.message_handler(content_types=['text'])
 def result(message: Message):
     global mult_flag
     global user_state
-    if user_state.get(message.from_user.id) is not None:
-        output = sum_or_mult(message.text,user_state[message.from_user.id])
+    output = 'None'
+    message_text = message.text
+    if message_text == 'Сложение':
+        user_state[message.from_user.id] = False
+        bot.send_message(message.chat.id, 'Теперь отправляйте числа через пробел, или разделенные ; , бот их сложит:\nНапример:\n\n1 2 3 4 5\nили\n1;2;3;4;5')
+        output = 'Теперь отправляйте числа через пробел, или разделенные ; , бот их сложит:\nНапример:\n\n1 2 3 4 5\nили\n1;2;3;4;5'
+
+    elif message_text == 'Умножение':
+        user_state[message.from_user.id] = True
+        bot.send_message(message.chat.id, 'Теперь отправляйте числа через пробел, или разделенные ; , бот их перемножит:\nНапример:\n\n1 2 3 4 5\nили\n1;2;3;4;5')
+        output = 'Теперь отправляйте числа через пробел, или разделенные ; , бот их перемножит:\nНапример:\n\n1 2 3 4 5\nили\n1;2;3;4;5'
+
+    elif message_text.startswith('Цена биткоина') or message_text.startswith('цена биткоина'):
+        
+        output = btc_price(message_text,message.from_user.first_name)
+        if output[0]=='!':
+            bot.send_message(message.chat.id, output[1:])
+        else:
+            with open('Price_plot.png','rb') as f:
+                bot.send_photo(message.chat.id,f,caption=output)
+    elif message_text == 'Погода':
+        pass
+    elif message_text == 'Перезагрузить бота':
+        send_welcome(message)
+    elif message_text.split()[0]=='Привет,':
+        pass
     else:
-        output = 'Я перезагрузил бота. Нажми еще раз\n/start'
-    bot.send_message(message.chat.id , output)
+        
+        if user_state.get(message.from_user.id) is not None:
+            output = mf.sum_or_mult(message.text,user_state[message.from_user.id])
+        else:
+            output = 'Нужно перезагрузить бот в меню'
+        bot.send_message(message.chat.id , output)
+       
     with open('log_svblv_bot.txt','a') as f:
-        print(f'User: {message.from_user.first_name} Message: {message.text}, Response: {output}',file = f)
+        old_str='\n'
+        new_str=''
+        print(f'User: {message.from_user.first_name} Message: {message.text}',file=f)
+   
+
+
+
+@bot.message_handler(content_types=['location'])
+def handle_location(message: Message):
+
+    output = mf.get_weather(message.location.latitude, message.location.longitude)
+    
+    bot.send_message(message.chat.id, output)
 
 bot.polling()

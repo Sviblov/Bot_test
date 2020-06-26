@@ -6,36 +6,29 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from datetime import date
 
+API_key='91b622a97f3f689cc5ca826c1c0acbc2'
+
+lat=35
+lon=139
+
+print(f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}')
+r=requests.get(f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}')
+
+def get_weather(lat, lon):
+    r=requests.get(f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}')
+    weather_info = r.json()
+
+    output1 = f'Текущая погода в {weather_info["name"]}: {weather_info["main"]["temp"]}\n\n'
+    output2 = f'Ощущается как {weather_info["main"]["feels_like"]}\n\n'
+    output3 = f'Скорость ветра {weather_info["wind"]["speed"]}'
+
+    output = output1 + output2 + output3
+    return output
+
+get_weather(lat,lon)
+
 #Import the requests library
 
-def get_bitcoin_price():
-    TICKER_API_URL = 'https://api.coindesk.com/v1/bpi/currentprice.json'
-
-    response = requests.get(TICKER_API_URL)
-    response_json = response.json()
-
-    bitcoin_price = response_json['bpi']['USD']['rate_float']
-    bitcoin_date =  response_json['time']['updated']
-    return f'Bitcoin price: {bitcoin_price} USD\nDate: {bitcoin_date}'
-
-#print(get_bitcoin_price())
-
-def get_bitcoin_timeseries(start_date, end_date, title):
-    TICKER_API_URL = f'https://api.coindesk.com/v1/bpi/historical/close.json?start={start_date}&end={end_date}'
-
-    response = requests.get(TICKER_API_URL)
-    response_json = response.json()
-    output_dict=response_json['bpi']
-    data_set = pd.DataFrame.from_dict(output_dict, orient = "index").reset_index()
-    data_set.columns = ['Date', 'Price']
-    data_set.plot(x='Date', y='Price')
-    plt.grid()
-    plt.title('Special for ' + title)
-    plt.xticks(rotation=90)
-    plt.savefig('Price_plot.png')
-
-
-get_bitcoin_timeseries('2018-01-01', date.today(),' Igor2')
 #data_set = pd.DataFrame({'date' : output_dict.keys() , 'Price' : output_dict.values() })
 #data_set = pd.DataFrame.from_dict(output_dict, orient = "index").reset_index()
 #data_set.columns = ['Date', 'Price']
