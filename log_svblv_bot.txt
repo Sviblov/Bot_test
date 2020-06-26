@@ -288,3 +288,23 @@ User: D Message: 1 2 3 4
 User: Igor Message: 1 5
 User: Igor Message: Цена биткоина
 User: Igor Message: Перезагрузить бота
+User: Igor Message: Цена биткоина
+User: Bogdana Message: Цена биткоина
+User: Bogdana Message: Перезагрузить бота
+User: Igor Message: Цена биткоина
+User: Bogdana Message: Цена биткоина
+User: D Message: Цена биткоина
+User: Igor Message: Сложение
+User: Igor Message: 1;2;3;4;5
+User: Igor Message: 1
+User: Igor Message: Умножение
+User: Igor Message: 1;2;3;4;5
+User: Igor Message: Цена биткоина
+User: Igor Message: None Output: Текущая погода в Mar’ina Roshcha: 24.42Ощущается как 22.35Скорость ветра 4 м/с
+User: Igor Message: Сложение
+User: Igor Message: 1 2 3
+User: Igor Message: Перезагрузить бота
+User: Julia Message: Умножение
+User: Igor Message: Умножение
+User: Igor Message: 1 2 3 4
+User: Igor Message: Сложение

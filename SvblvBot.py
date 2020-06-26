@@ -80,6 +80,7 @@ def result(message: Message):
         if output[0]=='!':
             bot.send_message(message.chat.id, output[1:])
         else:
+            mf.get_bitcoin_timeseries('2013-01-01', date.today(),message.from_user.first_name)
             with open('Price_plot.png','rb') as f:
                 bot.send_photo(message.chat.id,f,caption=output)
     elif message_text == 'Погода':
@@ -108,7 +109,11 @@ def result(message: Message):
 def handle_location(message: Message):
 
     output = mf.get_weather(message.location.latitude, message.location.longitude)
-    
+
     bot.send_message(message.chat.id, output)
+    with open('log_svblv_bot.txt','a') as f:
+        old_str='\n'
+        new_str=''
+        print(f'User: {message.from_user.first_name} Message: {message.text} Output: {output.replace(old_str, new_str)}',file=f)
 
 bot.polling()

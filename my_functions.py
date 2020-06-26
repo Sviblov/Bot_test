@@ -47,8 +47,8 @@ def get_weather(lat, lon):
     r=requests.get(f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}')
     weather_info = r.json()
 
-    output1 = f'Текущая погода в {weather_info["name"]}: {weather_info["main"]["temp"] - 273,15}\n\n'
-    output2 = f'Ощущается как {weather_info["main"]["feels_like"] - 273,15}\n\n'
+    output1 = f'Текущая погода в {weather_info["name"]}: {weather_info["main"]["temp"] - 273.15:0.2f}\n\n'
+    output2 = f'Ощущается как {weather_info["main"]["feels_like"] - 273.15:0.2f}\n\n'
     output3 = f'Скорость ветра {weather_info["wind"]["speed"]} м/с'
 
     output = output1 + output2 + output3
